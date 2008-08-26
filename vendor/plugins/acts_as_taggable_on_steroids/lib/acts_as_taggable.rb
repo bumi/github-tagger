@@ -7,11 +7,8 @@ module ActiveRecord #:nodoc:
       
       module ClassMethods
         def acts_as_taggable
-          has_many :taggings, :dependent => :destroy, :include => :tag
-          has_many :tags, :through => :taggings
-          
-          before_save :save_cached_tag_list
-          after_save :save_tags
+          has_many :taggings, :dependent => :destroy
+          has_many :tags, :through => :taggings, :uniq => true
           
           include ActiveRecord::Acts::Taggable::InstanceMethods
           extend ActiveRecord::Acts::Taggable::SingletonMethods
