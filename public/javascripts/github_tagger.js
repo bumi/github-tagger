@@ -375,7 +375,6 @@ function binl2b64(binarray)
 			var url = GithubTagger.taggerUrl + "repositories/" + GithubTagger.md5_url() + "?callback=?";
 			jQuery.getJSON(url,function(response){
 				$("#global_tags").html("");
-				console.log(response);
 				if(!response || !response.tags)
 					return;
 					
