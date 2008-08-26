@@ -286,7 +286,7 @@ function binl2b64(binarray)
 
 (function(){
 	GithubTagger = {
-		taggerUrl:"http://localhost:3000/",
+		taggerUrl:"http://github-tagger.railslove.com/",
 		
 		// create the HTML-skeleton for the tag stuff and add it to the .meta table and load the tags. 
 		// I've currently two <tr> - one for private tags and one for public tags

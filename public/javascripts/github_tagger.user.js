@@ -20,7 +20,6 @@
 
 var head = document.getElementsByTagName("head")[0];
 var script = document.createElement("script");
-//script.src = "http://githubtagger.railslove.com/javascripts/github_tagger.js";
-script.src = "http://localhost:3000/javascripts/github_tagger.js";
+script.src = "http://github-tagger.railslove.com/javascripts/github_tagger.js";
 script.type = "text/javascript";
 head.appendChild(script);
