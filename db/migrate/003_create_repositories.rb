@@ -5,8 +5,8 @@ class CreateRepositories < ActiveRecord::Migration
       t.integer :user_id
       t.timestamps
     end
-    add_index :url
-    add_index :permalink
+    add_index :repositories, :url
+    add_index :repositories, :permalink
   end
 
   def self.down
