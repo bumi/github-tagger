@@ -286,8 +286,8 @@ function binl2b64(binarray)
 
 (function(){
 	GithubTagger = {
-		//taggerUrl:"http://github-tagger.railslove.com/",
-		taggerUrl:"http://localhost:3000/",
+		taggerUrl:"http://github-tagger.railslove.com/",
+		//taggerUrl:"http://localhost:3000/",
 		init: function() {
 			if(GithubTagger.isRepositoryUrl())
 				GithubTagger.initRepositorySite();
