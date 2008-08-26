@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: MyString
+  md5_url: MyString
+  name: MyString
+  author: MyString
+  author_id: 1
+
+two:
+  url: MyString
+  md5_url: MyString
+  name: MyString
+  author: MyString
+  author_id: 1

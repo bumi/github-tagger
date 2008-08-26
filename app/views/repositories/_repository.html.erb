@@ -1,0 +1,4 @@
+<div class="repository">
+	<strong><%= link_to h(repository.name), repository.url %></strong>
+	<%= h repository.tags.collect{|tag| tag.name}.join(" ") %>
+</div>

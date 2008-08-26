@@ -1,0 +1,13 @@
+Github Tagger
+============
+
+This is the backend for my Greasemonkey user script that adds tagging functions to the incredible awesome github.com.
+It allows you to tag github repositories and search for tagged repositories. - all within github. 
+The tags are saved on http://github-tagger.railslove.com.
+
+I've hacked this script/app last night in a few hours visit http://github-tagger.railslove.com for more information. 
+
+
+if you have questions: michael@railslove.com
+
+Michael Bumann - Railslove.com

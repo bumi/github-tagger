@@ -1,0 +1,1 @@
+require "railslove/request/request_method"
