@@ -286,11 +286,17 @@ function binl2b64(binarray)
 
 (function(){
 	GithubTagger = {
-		taggerUrl:"http://github-tagger.railslove.com/",
-		
+		//taggerUrl:"http://github-tagger.railslove.com/",
+		taggerUrl:"http://localhost:3000/",
+		init: function() {
+			if(GithubTagger.isRepositoryUrl())
+				GithubTagger.initRepositorySite();
+			if(GithubTagger.isSearchUrl())
+				GithubTagger.globalSearch(GithubTagger.searchQuery());
+		},
 		// create the HTML-skeleton for the tag stuff and add it to the .meta table and load the tags. 
 		// I've currently two <tr> - one for private tags and one for public tags
-		init: function(){
+		initRepositorySite: function(){
 			var global_td_head = jQuery("<td />").addClass("label").html("all tags:");
 			var global_td_tags = jQuery("<td />").html('<span id="global_tags"></span>');
 			var global_tag_row = jQuery("<tr />");
@@ -307,6 +313,7 @@ function binl2b64(binarray)
 			$(".meta table").append(global_tag_row);
 			
 			$("#save_tags").bind('click', function(e) { e.preventDefault();GithubTagger.saveTags($('#tags_input').val())});
+			
 			GithubTagger.loadTags();
 		},
 		// saves the tags doing a jQuery.getJSON request
@@ -326,10 +333,6 @@ function binl2b64(binarray)
 			GithubTagger.loadMyTags();
 			GithubTagger.loadGlobalTags();
 		},
-		
-		
-		
-		
 		// OK... NOW IT GETS UGLY! UMPH... THIS IS VERY SIMILAR TO THE loadGlobalTags() - SO REFACTOR!!! the main difference are the different urls and different json srings that are returned.
 		loadMyTags: function(){
 			if(!GithubTagger.url())
@@ -344,7 +347,6 @@ function binl2b64(binarray)
 					var tag_url = GithubTagger.taggerUrl + "repositories.js?tags="+escape(tagging.tag_name);
 					var tag_link =  jQuery("<a/>").attr({href:tag_url, rel:"facebox"}).html(" "+ tagging.tag_name +" ");
 					$("#my_tags").append(tag_link);
-				
 					tag_link.bind("click", function(event) { 
 						event.preventDefault();
 						url = $(this).attr("href");
@@ -373,6 +375,7 @@ function binl2b64(binarray)
 			var url = GithubTagger.taggerUrl + "repositories/" + GithubTagger.md5_url() + "?callback=?";
 			jQuery.getJSON(url,function(response){
 				$("#global_tags").html("");
+				console.log(response);
 				if(!response || !response.tags)
 					return;
 					
@@ -402,8 +405,29 @@ function binl2b64(binarray)
 				});
 			});
 		},
-		showSearchResult: function(response) {
-			alert("coming soon");
+		globalSearch: function(query) {
+			var url = GithubTagger.taggerUrl + "repositories.js?tags="+query;
+			jQuery.getJSON(url+"&callback=?",function(response){
+				for(var i=0;i<response.length;i++) {
+					var repository = response[i];
+					var tr_name = jQuery("<tr />");
+					var td_name = jQuery("<td/>").addClass("title").append(jQuery("<a/>").attr({href:repository.url}).html(repository.name));
+					var td_user = jQuery("<td/>").addClass("owner").append(jQuery("<a/>").attr({href:"http://github.com/"+repository.author}).html(repository.author));
+					var graph_content = '<div class="bars"><object width="416" height="20" id="participation_graph" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"><param value="/flash/participation_graph.swf" name="movie"/><param value="always" name="allowScriptAccess"/><param value="high" name="quality"/><param value="noscale" name="scale"/><param value="transparent" name="wmode"/><param value="location='+repository.graph_url + '" name="FlashVars"/> <embed width="416" height="20" flashvars="location='+repository.graph_url+'" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" allowscriptaccess="always" wmode="transparent" quality="high" name="participation_graph" src="/flash/participation_graph.swf"/></object></div> <img alt="legend" src="/images/modules/dashboard/dossier/participation_legend.png" class="legend"/>';
+					tr_name.append(jQuery("<td/>").addClass("gravatar"));
+					tr_name.append(td_name);
+					tr_name.append(td_user)
+					tr_name.append(jQuery("<td/>").addClass("date"));
+					tr_name.append(jQuery("<td/>").attr({rowspan:"2"}).addClass("graph").html(graph_content));
+					
+					var tr_tags = jQuery("<tr />");
+					var td_empty = jQuery("<td/>");
+					var td_tags = jQuery("<td/>").attr({colspan:"3"}).addClass("desc").html("<strong>Tags:</strong> "+ repository.tag_list);
+					tr_tags.append(td_empty).append(td_tags);
+					$("#directory table.repo").append(tr_name);
+					$("#directory table.repo").append(tr_tags);
+				}
+			});
 		},
 		User: {
 			name: function() {
@@ -425,6 +449,17 @@ function binl2b64(binarray)
 		},
 		md5_url: function(){
 			return hex_md5(GithubTagger.url());
+		},
+		isRepositoryUrl: function(){
+			return GithubTagger.url() ? true : false;
+		},
+		searchQuery: function(){
+			var m = document.location.toString().match(/\?q=(.*)/);
+			if(m)
+				return m[1]
+		},
+		isSearchUrl: function(){
+			return GithubTagger.searchQuery() ? true : false;
 		}
 		
 	};

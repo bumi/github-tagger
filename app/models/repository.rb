@@ -1,5 +1,5 @@
 class Repository < ActiveRecord::Base
-  serialize_fu :only => [:url, :name, :permalink], :include => :tags, :methods => [:tag_list]
+  serialize_fu :only => [:url, :name, :permalink], :include => :tags, :methods => [:tag_list, :author,:graph_url]
   
   validates_presence_of :url
   validates_uniqueness_of :url
@@ -9,6 +9,15 @@ class Repository < ActiveRecord::Base
   belongs_to :user
   
   make_permalink :with => :url
+  
+  
+  def author
+    url, author, name  = parse_url(self.url)[0..2]
+    author
+  end
+  def graph_url
+    "/#{author}/#{name}/graphs/owner_participation"
+  end
   
   def tag_list
     tags.map(&:name).join(" ")
