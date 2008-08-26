@@ -3,4 +3,6 @@ log/*.log
 tmp/**/*
 *.sqlite3
 config/database.yml
+config/mongrel_cluster.yml
 deploy.rb
+config/initializers/mail.rb
