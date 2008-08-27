@@ -1,0 +1,3766 @@
+/*
+
+THIS IS BORROWED FROM GITHUB.COM 
+
+
+*/
+
+
+ul.jq-ui-autocomplete {
+    position: absolute;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    margin: 0px;
+    padding: 0;
+    list-style: none;
+    font: normal .75em/.75em Verdana, Arial, sans-serif;
+    color: #333;
+}
+ul.jq-ui-autocomplete li { 
+  display: block; 
+  padding: .3em .5em .3em .3em; 
+  overflow: hidden;
+  width: 100%;
+}
+
+ul.jq-ui-autocomplete li.active { 
+  background-color: #3875d7; 
+  color: #fff;
+}
+
+
+
+table.jCalendar {
+	border: 1px solid #000;
+	background: #aaa;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+table.jCalendar th {
+	background: #333;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 5px;
+}
+table.jCalendar td {
+	background: #ccc;
+	color: #000;
+	padding: 3px 5px;
+	text-align: center;
+}
+table.jCalendar td.other-month {
+	background: #ddd;
+	color: #aaa;
+}
+table.jCalendar td.today {
+	background: #666;
+	color: #fff;
+}
+table.jCalendar td.selected {
+	background: #f66;
+	color: #fff;
+}
+table.jCalendar td.selected:hover {
+	background: #f33;
+	color: #fff;
+}
+table.jCalendar td:hover, table.jCalendar td.dp-hover {
+	background: #fff;
+	color: #000;
+}
+table.jCalendar td.disabled, table.jCalendar td.disabled:hover {
+	background: #bbb;
+	color: #888;
+}
+
+/* For the popup */
+
+/* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */
+
+div.dp-popup {
+	position: relative;
+	background: #ccc;
+	font-size: 10px;
+	font-family: arial, sans-serif;
+	padding: 2px;
+	width: 171px;
+	line-height: 1.2em;
+}
+div#dp-popup {
+	position: absolute;
+	z-index: 199;
+}
+div.dp-popup h2 {
+	font-size: 12px;
+	text-align: center;
+	margin: 2px 0;
+	padding: 0;
+}
+a#dp-close {
+	font-size: 11px;
+	padding: 4px 0;
+	text-align: center;
+	display: block;
+}
+a#dp-close:hover {
+	text-decoration: underline;
+}
+div.dp-popup a {
+	color: #000;
+	text-decoration: none;
+	padding: 3px 2px 0;
+}
+div.dp-popup div.dp-nav-prev {
+	position: absolute;
+	top: 2px;
+	left: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-prev a {
+	float: left;
+}
+/* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
+div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
+	cursor: pointer;
+}
+div.dp-popup div.dp-nav-prev a.disabled, div.dp-popup div.dp-nav-next a.disabled {
+	cursor: default;
+}
+div.dp-popup div.dp-nav-next {
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-next a {
+	float: right;
+}
+div.dp-popup a.disabled {
+	cursor: default;
+	color: #aaa;
+}
+div.dp-popup td {
+	cursor: pointer;
+}
+div.dp-popup td.disabled {
+	cursor: default;
+}
+#facebox .b {
+  background:url(/facebox/b.png);
+}
+
+#facebox .tl {
+  background:url(/facebox/tl.png);
+}
+
+#facebox .tr {
+  background:url(/facebox/tr.png);
+}
+
+#facebox .bl {
+  background:url(/facebox/bl.png);
+}
+
+#facebox .br {
+  background:url(/facebox/br.png);
+}
+
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: left;
+}
+
+#facebox .popup {
+  position: relative;
+}
+
+#facebox table {
+  border-collapse: collapse;
+}
+
+#facebox .body {
+  padding: 10px;
+  background: #fff;
+  width: 370px;
+}
+
+#facebox .loading {
+  text-align: center;
+}
+
+#facebox .image {
+  text-align: center;
+}
+
+#facebox img {
+  border: 0;
+}
+
+#facebox .footer {
+  border-top: 1px solid #DDDDDD;
+  padding-top: 5px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+#facebox .tl, #facebox .tr, #facebox .bl, #facebox .br {
+  height: 10px;
+  width: 10px;
+  overflow: hidden;
+  padding: 0;
+}
+
+#facebox_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+}
+
+.facebox_hide {
+  z-index:-100;
+}
+
+.facebox_overlayBG {
+  background-color: #000;
+  z-index: 99;
+}
+
+* html #facebox_overlay { /* ie6 hack */
+  position: absolute;
+  height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid WindowFrame;
+	background-color: Window;
+	overflow: hidden;
+  z-index: 1000;
+}
+
+.ac_results ul {
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+  text-align: left;
+}
+
+.ac_loading {
+
+}
+
+.ac_over {
+	background-color: Highlight;
+	color: HighlightText;
+  text-align: left;
+}
+
+.syntax  { background: #ffffff; }
+.syntax .c { color: #999988; font-style: italic } /* Comment */
+.syntax .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.syntax .k { font-weight: bold } /* Keyword */
+.syntax .o { font-weight: bold } /* Operator */
+.syntax .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.syntax .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.syntax .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.syntax .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.syntax .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.syntax .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.syntax .ge { font-style: italic } /* Generic.Emph */
+.syntax .gr { color: #aa0000 } /* Generic.Error */
+.syntax .gh { color: #999999 } /* Generic.Heading */
+.syntax .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.syntax .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.syntax .go { color: #888888 } /* Generic.Output */
+.syntax .gp { color: #555555 } /* Generic.Prompt */
+.syntax .gs { font-weight: bold } /* Generic.Strong */
+.syntax .gu { color: #aaaaaa } /* Generic.Subheading */
+.syntax .gt { color: #aa0000 } /* Generic.Traceback */
+.syntax .kc { font-weight: bold } /* Keyword.Constant */
+.syntax .kd { font-weight: bold } /* Keyword.Declaration */
+.syntax .kp { font-weight: bold } /* Keyword.Pseudo */
+.syntax .kr { font-weight: bold } /* Keyword.Reserved */
+.syntax .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.syntax .m { color: #009999 } /* Literal.Number */
+.syntax .s { color: #d14 } /* Literal.String */
+.syntax .na { color: #008080 } /* Name.Attribute */
+.syntax .nb { color: #0086B3 } /* Name.Builtin */
+.syntax .nc { color: #445588; font-weight: bold } /* Name.Class */
+.syntax .no { color: #008080 } /* Name.Constant */
+.syntax .ni { color: #800080 } /* Name.Entity */
+.syntax .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.syntax .nf { color: #990000; font-weight: bold } /* Name.Function */
+.syntax .nn { color: #555555 } /* Name.Namespace */
+.syntax .nt { color: #000080 } /* Name.Tag */
+.syntax .nv { color: #008080 } /* Name.Variable */
+.syntax .ow { font-weight: bold } /* Operator.Word */
+.syntax .w { color: #bbbbbb } /* Text.Whitespace */
+.syntax .mf { color: #009999 } /* Literal.Number.Float */
+.syntax .mh { color: #009999 } /* Literal.Number.Hex */
+.syntax .mi { color: #009999 } /* Literal.Number.Integer */
+.syntax .mo { color: #009999 } /* Literal.Number.Oct */
+.syntax .sb { color: #d14 } /* Literal.String.Backtick */
+.syntax .sc { color: #d14 } /* Literal.String.Char */
+.syntax .sd { color: #d14 } /* Literal.String.Doc */
+.syntax .s2 { color: #d14 } /* Literal.String.Double */
+.syntax .se { color: #d14 } /* Literal.String.Escape */
+.syntax .sh { color: #d14 } /* Literal.String.Heredoc */
+.syntax .si { color: #d14 } /* Literal.String.Interpol */
+.syntax .sx { color: #d14 } /* Literal.String.Other */
+.syntax .sr { color: #009926 } /* Literal.String.Regex */
+.syntax .s1 { color: #d14 } /* Literal.String.Single */
+.syntax .ss { color: #990073 } /* Literal.String.Symbol */
+.syntax .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.syntax .vc { color: #008080 } /* Name.Variable.Class */
+.syntax .vg { color: #008080 } /* Name.Variable.Global */
+.syntax .vi { color: #008080 } /* Name.Variable.Instance */
+.syntax .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  font: 13.34px helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align: center;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;f
+}
+
+select,
+input,
+textarea {
+  font: 99% helvetica, arial, sans-serif;
+}
+
+input.text {
+  padding: 1px 0;
+}
+
+optgroup {
+  margin-top: .5em;
+}
+
+pre,
+code {
+  font: 115% Monaco, "Courier New", monospace;
+  *font-size: 100%;
+/*  line-height: 1.5em;*/
+}
+
+body * {
+  line-height: 1.4em;
+}
+
+img {
+  border: 0;
+}
+
+/* links */
+
+a {
+  color: #4183c4; /* blue */
+  text-decoration: none;
+}
+
+a.action {
+  color: #d00; /* red */
+  text-decoration: underline;
+}
+
+a.action span {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.clear { 
+  clear: both;
+}
+
+.sparkline {
+  display: none;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.hidden {
+  display: none;
+}
+
+img.help {
+  vertical-align: middle;
+}
+
+.notification {
+  background: #FFFBE2 none repeat scroll 0%;
+  border: 1px solid #FFE222;
+  padding: 1em;
+  margin: 1em;
+  font-weight: bold;
+}
+
+.error_box {
+  background: #FFEBE8 none repeat scroll 0%;
+  border: 1px solid #DD3C10;
+  padding: 1em;
+  font-weight: bold;
+}
+
+abbr {
+  border-bottom: none;
+}
+
+/*****************************************************************************/
+/*
+/* Common Layout
+/*
+/*****************************************************************************/
+
+body {
+  text-align: center;
+}
+
+.site {
+  width: 69em;
+  margin: 0 auto;
+  padding: 0 3em;
+  text-align: left;
+}
+
+/*****************************************************************************/
+/*
+/* Extra Syntax
+/*
+/*****************************************************************************/
+
+.syntax .gc {
+  color: #999;
+  background-color: #EAF2F5;
+}
+
+
+/*****************************************************************************/
+/*
+/* Site Alert
+/*
+/*****************************************************************************/
+
+#site_alert {
+  background-color: #FFFD98;
+  border: 1px solid #FFC642;
+}
+
+  #site_alert .site {
+  }
+
+    #site_alert p {
+      font-weight: bold;
+      font-size: 110%;
+      padding: 1.25em 0 1.25em 4em;
+    }
+
+/*****************************************************************************/
+/*
+/* Header
+/*
+/*****************************************************************************/
+
+#header {
+  height: 6.82em;
+}
+
+  #header a {
+    color: #fff; 
+  }
+
+  #header a:hover {
+    text-decoration: none;
+  }
+
+  #header .logo {
+    padding-top: 1.2em;
+    float: left;
+  }
+
+  /* actions */
+  
+  #header .actions {
+    float: right;
+    color: #444;
+    font-size: 110%;
+    margin-top: 2.3em;
+  }
+  
+    #header .actions a  {
+      color: #444;
+      margin-left: 1.5em;
+      padding: .4em;
+    }
+    
+    #header .actions a:hover {
+      text-decoration: none;
+      background-color: #dcdcdc;
+    }
+    
+  /* basic */
+  
+  #header.basic {
+    border-bottom: 5px solid #ddd;
+    margin-bottom: 1em;
+  }
+  
+  /* userbox */
+  
+  #header .userbox {
+    background: #EAF2F5;
+    border: 1px solid #ddd;
+    float: right;
+    margin-top: 1.6em;
+    width: 25em;
+  }
+  
+  #header .userbox .box {
+    margin: .25em .5em;
+  }
+  
+    #header .userbox .gravatar {
+      float: left;
+    }
+  
+      #header .userbox .gravatar img {
+        border: 1px solid #d0d0d0; /* gray */
+        padding: 2px;
+        background-color: white;
+        margin-right: .7em;
+      }
+      
+    #header .userbox .top {
+      overflow: hidden;
+    }
+      
+      #header .userbox .top .name {
+        float: left;
+        overflow: hidden;
+        font-weight: bold;
+        margin-right: .5em;
+      }
+
+      #header .userbox .top .name a {
+        color: #000;
+      }
+      
+      #header .userbox .top .links {
+        font-size: 85%;
+        margin-top: .2em;
+        float: right;
+        text-align: right;
+      }
+      
+        #header .userbox .top .links a {
+          color: #4183c4;
+        }
+        
+        #header .userbox .top .links a:hover {
+          text-decoration: underline;
+        }
+        
+    #header .userbox .bottom {
+      overflow: hidden;
+    }
+      #header .userbox .inbox {
+        float: left;
+        margin-top: .7em;
+        padding-left: 20px;
+        cursor: pointer;
+      }
+
+        #header .userbox a {
+          color: #4183c4; /* blue */
+        }
+    
+      #header .userbox .bottom .select {
+        float: right;
+        margin-top: .5em;
+      }
+
+/*****************************************************************************/
+/*
+/* Main
+/*
+/*****************************************************************************/
+
+#main {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -8.6em;
+}
+
+.push {
+  height: 8.6em;
+  padding-bottom: 4em;
+}
+
+/*****************************************************************************/
+/*
+/* Footer
+/*
+/*****************************************************************************/
+
+#footer {
+  height: 8.6em;
+  overflow: hidden;
+  color: #cadcea;
+}
+
+  #footer a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  #footer .info {
+    padding: 2.9em 0 3.3em 0;
+    float: left;
+  }
+  
+    #footer .info .links {
+      padding-bottom: .4em;
+      border-bottom: 3px solid #5c8ab3;
+    }
+    
+    #footer .info .company {
+      padding-top: .4em;
+    }
+  
+  #footer .sponsor {
+    padding: 1.6em 0 1em 0;
+    float: right;
+  }
+  
+    #footer .sponsor a {
+      text-decoration: none;
+    }
+    
+      #footer .sponsor a:hover {
+        text-decoration: underline;
+      }
+
+    #footer .sponsor * {
+      vertical-align: middle;
+    }
+    
+/*****************************************************************************/
+/*
+/* Error
+/*
+/*****************************************************************************/
+
+#error {
+  margin-top: 2em;
+  text-align: center;
+}
+
+  #error h1 {
+    font-size: 140%;
+    margin-top: 1em;
+  }
+  
+  #error ul {
+    padding-left: 1em;
+  }
+  
+  #error .status500,
+  #error .status404 {
+    width: 32em;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+    #error .status500 p,
+    #error .status404 p {
+      font-weight: bold;
+    }
+    
+  #error .maintenance {
+    text-align: center;
+  }
+  
+    #error .maintenance p {
+      text-align: center;
+      font-weight: bold;
+    }
+
+/*****************************************************************************/
+/*
+/* Standard Form
+/*
+/*****************************************************************************/
+
+.standard_form {
+  margin: 3em auto 0 auto;
+  width: 60em;
+  background-color: #eaf2f5;
+  padding: 2em 2em 1em 2em;
+  border: 20px solid #ddd;
+}
+
+  .standard_form h1 {
+    font-size: 160%;
+    margin-bottom: 1em;
+  }
+  
+    .standard_form h1 a {
+      font-size: 70%;
+      font-weight: normal;
+    }
+    
+  .standard_form p {
+    margin: .5em 0;
+  }
+  
+  .standard_form p.note {
+    color: #a00;
+  }
+    
+  .standard_form form {
+    
+  }
+
+ .standard_form h1 span {
+    float:right;
+    font-size:14px;
+  }
+
+ .standard_form h1 span a {
+    font-weight:bold;
+    font-size:14px;
+    line-height:160%;
+  }
+  
+    .standard_form form label,
+    .standard_form form .label,
+    label.standard {
+      font-size: 110%;
+      color: #666;
+      display: block;
+      margin: 0;
+      margin-top: 1em;
+    }
+    
+      .standard_form form label a {
+        font-size: 90%;
+      }
+      
+      .standard_form form label.error {
+        color: #a00;
+      }
+      
+    .standard_form form .label label {
+      margin: 0;
+      color: black;
+      font-size: 95%;
+    }
+    
+      .standard_form form .label span {
+        font-size: 90%;
+        color: #888;
+      }
+    
+    .standard_form form input.text,
+    .standard_form form textarea {
+      padding: 5px;
+      border: 1px solid #888;
+    }
+  
+      .standard_form form input.text {
+        font-size: 110%;
+      }
+    
+      .standard_form form textarea {
+        
+      }
+      
+      .standard_form form input.submit {
+        font-size: 120%;
+        padding: .1em 1em;
+      }
+      
+      .standard_form form label.error input.text,
+      .standard_form form label.error textarea {
+        border: 1px solid #a00;
+        background-color: #f2e1e1;
+      }
+
+/*****************************************************************************/
+/*
+/* Profile
+/*
+/*****************************************************************************/
+
+#profile {
+  margin: 3em auto 0 auto;
+  width: 60em;
+}
+
+/*****************************************************************************/
+/*
+/* Login
+/*
+/*****************************************************************************/
+
+#login {
+  width: 31em;
+}
+
+/*****************************************************************************/
+/*
+/* Forgot Password
+/*
+/*****************************************************************************/
+
+#forgot_password {
+  width: 31em;
+}
+
+/*****************************************************************************/
+/*
+/* Repo Menu
+/*
+/*****************************************************************************/
+
+#repo_menu {
+  text-align: left;
+  overflow: hidden;
+}
+
+  #repo_menu ul {
+    overflow: hidden;
+    border-bottom: 3px solid white;
+  }
+  
+    #repo_menu ul li {
+      float: left;
+      list-style-type: none;
+      height: 1.6em;
+      padding-top: .4em;
+      border-right: 2px solid #eee;
+      position: relative;
+    }
+    
+    #repo_menu ul li:hover {
+    }
+    
+    #repo_menu ul li.active {
+    }
+    
+      #repo_menu ul li a {
+        padding: 1em 1.25em .3em 1.25em;
+        color: #979797;
+        font-size: 110%;
+      }
+      
+      #repo_menu ul li a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      
+    #repo_menu ul li.active a {
+      color: black;
+    }
+    
+#triangle {
+  width: 10px;
+  height: 10px;
+}
+
+/*****************************************************************************/
+/*
+/* Repo Sub Menu
+/*
+/*****************************************************************************/
+
+#repo_sub_menu {
+  height: 2.099em;
+  margin-bottom: 1.5em;
+  line-height: 1.5;
+}
+
+  #repo_sub_menu .site {
+    padding: .4em 1em 0 1em;
+  }
+  
+    #repo_sub_menu ul {
+      list-style: none;
+    }
+    
+    #repo_sub_menu li {
+      float: left;
+      position: relative;
+    }
+    
+      #repo_sub_menu li ul {
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        top: 1em;
+        left: 0;
+        background-color: #d0d0d0;
+        margin-left: 1.7em;
+        border-left: 1px solid #cfcfcf;
+        border-right: 1px solid #cfcfcf;
+        border-bottom: 1px solid #cfcfcf;
+        padding: .3em;
+      }
+      
+      #repo_sub_menu li > ul {
+        top: auto;
+        left: auto;
+      }
+      
+        #repo_sub_menu li ul li {
+          top: auto;
+          left: auto;
+          float: none;
+          min-width: 6em;
+        }
+        
+          #repo_sub_menu li ul li a {
+            margin-left: 0;
+            padding: .1em .3em;
+            display: block;
+          }
+      
+      #repo_sub_menu li:hover ul {
+        display: block;
+      }
+      
+    #repo_sub_menu a {
+      padding: .3em;
+      margin-left: 2em;
+      color: black;
+    }
+  
+    #repo_sub_menu a:hover {
+      text-decoration: none;
+      background-color: #bbb;
+    }
+  
+    #repo_sub_menu a.active {
+      background-color: #eee;
+    }
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+
+#home {
+  
+}
+
+  #home .search {
+    height: 7.35em;
+    margin-top: -1em;
+  }
+  
+    #home .search .site {
+      width: 46.78em;
+      padding-top: 1.15em;
+    }
+    
+      #home .search .site * {
+        vertical-align: top;
+      }
+    
+      #home .search .site .label {
+        color: #777;
+        font-size: 110%;
+        font-weight: bold;
+      }
+      
+      #home .search .site .box input.text {
+        width: 21.32em;
+        height: 1.05em;
+        font-size: 200%;
+        padding-top: .2em;
+        border: 4px solid #b4b4b4;
+      }
+      
+  #home .featured {
+    overflow: hidden;
+    margin-top: 2.7em;
+  }
+  
+    #home .featured .meta {
+      float: left;
+      text-align: right;
+      width: 31.33em;
+    }
+    
+      #home .featured .meta a {
+        color: #369;
+      }
+    
+      #home .featured .meta .user {
+        font-weight: bold;
+      }
+      
+      #home .featured .meta .repo {
+        font-weight: bold;
+        font-size: 270%;
+        margin-top: -.2em;
+      }
+      
+      #home .featured .meta .when {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #c7c7c7;
+        margin-top: -.4em;
+        font-size: 95%;
+      }
+    
+    #home .featured .blurb {
+      float: left;
+      width: 29.23em;
+      color: #888;
+      padding-left: 5.57em;
+    }
+    
+      #home .featured .blurb p {
+        font-size: 110%;
+      }
+      
+      #home .featured .blurb span {
+        color: black;
+        font-size: 105%;
+      }
+      
+  #home .popular {
+    border-top: 5px solid #f4f4f4;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    margin-top: 2.4em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+  }
+
+    #home .popular h3 {
+      font-size: 105%;
+      color: #aaa;
+      margin-bottom: .5em;
+    }
+    
+    #home .popular img {
+      border: 1px solid #d0d0d0; /* gray */
+      padding: 1px;
+      background-color: white;
+      margin-right: .1em;
+      position: relative;
+      top: .25em;
+    }
+    
+    #home .popular a {
+      color: black;
+    }
+    
+      #home .popular ul {
+        list-style-type: none;
+      }
+      
+        #home .popular ul li {
+          font-size: 125%;
+          color: #888;
+        }
+        
+          #home .popular ul li a.repo {
+            font-weight: bold;
+          }
+        
+    #home .popular .left {
+      margin-left: 7em;
+      float: left;
+      width: 25em;
+    }
+    
+    #home .popular .right {
+      margin-right: 7em;
+      float: right;
+      width: 25em;
+    }
+  
+  /* headline */
+  
+  #home .headline {
+    font-family: "HelveticaNeue-Light",Helvetica,Arial,sans-serif;
+    margin-bottom: 4.2em;
+  }
+  
+    #home .headline .words {
+      margin-top: 1.5em;
+      text-align: center;
+    }
+    
+    #home .headline .tour {
+      margin-top: 3em;
+      text-align: center;
+    }
+
+  #home .headline h1,
+  #home .headline h2 {
+    text-align: center;
+    font-weight: normal;
+  }
+  
+    #home .headline h1 {
+      font-size: 220%;
+      color: #133855;
+    }
+    
+    #home .headline h2 {
+      font-size: 150%;
+      color: #133855;
+    }
+    
+  /* features */
+    
+  #home .features {
+    border-top: 5px solid #ddd;
+    background-color: #edf2f6;
+    overflow: hidden;
+    padding: 1em 2em 3em 2em;
+  }
+  
+    #home .features h3 {
+      font-size: 150%;
+      margin-top: 1em;
+    }
+    
+    #home .features p {
+      font-size: 120%;
+      color: #444;
+      padding-bottom: 1em;
+    }
+  
+    #home .features .left {
+      margin-left: 7em;
+      float: left;
+      width: 25em;
+    }
+    
+    #home .features .right {
+      margin-right: 7em;
+      float: right;
+      width: 25em;
+    }
+    
+  /* testimonials */
+    
+  #home #testimonials {
+    background-color: #edf2f6;
+    padding: 2em 2em 4em 2em;
+  }
+    
+  /* screens */
+  
+  #home .screens {
+    overflow: hidden;
+    border-top: 5px solid #ddd;
+    border-bottom: 5px solid #ddd;
+    padding: 2em 0 2.5em 0;
+  }
+  
+    #home .screens .site {
+      text-align: center;
+      width: 68em;
+      margin: 0 auto;
+    }
+    
+      #home .screens h2 {
+        margin-bottom: .5em;
+      }
+  
+      #home .screens .screenshot {
+        float: left;
+        text-align: center;
+        margin: 0 1em;
+        width: 275px;
+      }
+      
+        #home .screens .screenshot img {
+          margin-bottom: .1em;
+        }
+
+/*****************************************************************************/
+/*
+/* Testimonials
+/*
+/*****************************************************************************/
+
+#testimonials {
+  text-align: center;
+  padding-top: 2em;
+}
+
+  #testimonials blockquote {
+    margin: 2em auto;
+    font-size: 120%;
+    font-style: italic;
+    color: #666;
+  }
+  
+    #testimonials blockquote span {
+      display: block;
+      text-align: right;
+      color: black;
+      margin-top: .5em;
+    }
+    
+  #testimonials p {
+    font-size: 120%;
+  }
+
+/*****************************************************************************/
+/*
+/* Commit
+/*
+/*****************************************************************************/
+
+#commit {
+  overflow: hidden;
+}
+
+  #commit .group {
+    border-top: 1px solid #bedce7; /* blue */
+  }
+
+  #commit .separator {
+    padding-top: 1em;
+  }
+
+  #commit .envelope {
+    border-bottom: 1px solid #bedce7; /* blue */
+    border-left: 1px solid #bedce7; /* blue */
+    border-right: 1px solid #bedce7; /* blue */
+    padding: 0 .7em .7em .7em;
+    overflow: hidden;
+  }
+
+  #commit .envelope.selected {
+    background: #fffeeb !important;
+  }
+
+    #commit .envelope.selected .machine span {
+      border-bottom: 1px dotted #4183c4; /* blue */
+    }
+
+    #commit.single_commit .envelope .machine span {
+      border-bottom: 1px dotted #4183c4; /* blue */
+    }
+
+  #commit .human {
+    padding-top: .7em;
+    float: left;
+    width: 40em;
+  }
+  
+    #commit .human .refs {
+      font-size: 150%;
+    }
+  
+    #commit .human .message {
+      font-size: 80%;
+      font-family: Monaco, "Courier New", monospace;
+    }
+
+      #commit .human .message a {
+        color: #000;
+      }
+
+    #commit .human .actor {
+      clear: left;
+      margin-top: .75em;
+    }
+
+      #commit .human .actor .gravatar {
+        border: 1px solid #d0d0d0; /* gray */
+        padding: 2px;
+        background-color: white;
+        float: left;
+        margin-right: .7em;
+      }
+      
+      #commit .human .actor .name {
+        line-height: 1.5em;
+      }
+
+        #commit .human .actor .name a {
+          color: #000;
+        }
+      
+      #commit .human .actor .name span {
+        color: #888;
+        font-size: 90%;
+      }
+      
+      #commit .human .actor .date {
+        color: #888;
+        font-size: 90%;
+        line-height: 1em;
+      }
+      
+  #commit .machine {
+    float: right;
+    width: 30em;
+    padding: .7em 0 .7em .7em;
+    border-left: 1px solid #bedce7; /* blue */
+    color: #808080;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 0.85em;
+    line-height: 1.5em;
+  }
+  
+/*****************************************************************************/
+/*
+/* Path
+/*
+/*****************************************************************************/
+
+#path {
+  font-size: 140%;
+  padding: .8em 0;
+}
+
+/*****************************************************************************/
+/*
+/* TOC
+/*
+/*****************************************************************************/
+
+#toc {
+  padding: 1.5em 0;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 90%;
+}
+  
+  #toc ul {
+    border-top: 1px solid #eee;
+  }
+
+  #toc ul li {
+    list-style-type: none;
+    padding: .4em 0 .4em 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+    #toc ul li.added {
+    }
+    
+    #toc ul li.removed {
+    }
+    
+    #toc ul li.modified {
+    }
+
+/*****************************************************************************/
+/*
+/* Browser
+/*
+/*****************************************************************************/
+
+#browser {
+  margin-bottom: 1em;
+}
+
+  #browser table {
+    border-top: 1px solid #d8d8d8; /* gray */
+    border-left: 1px solid #d8d8d8; /* gray */
+    border-right: 1px solid #d8d8d8; /* gray */
+    width: 100%;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 90%;
+  }
+  
+    #browser table th {
+      text-align: left;
+      font-weight: normal;
+      background-color: #eaeaea;
+      color: #999;
+      padding: .5em .3em;
+      border-bottom: 1px solid #d8d8d8;
+    }
+
+      #browser table .history {
+        float: right;
+        padding-right: 5px;
+      }
+    
+    #browser table td {
+      padding: .5em .3em;
+      color: #484848;
+      border-bottom: 1px solid #e1e1e1;
+    }
+    
+      #browser table td.icon {
+        width: 1.3em
+      }
+
+      #browser table td a.message {
+        color: #484848;
+      }
+
+/*****************************************************************************/
+/*
+/* Readme
+/*
+/*****************************************************************************/
+
+#readme {
+  margin: 1em 0;
+}
+
+  #readme.blob {
+    margin-top: -1em;
+  }
+
+  #readme span.name {
+    font-size: 140%;
+    padding: .8em 0;
+  }
+  
+  /* box */
+  
+  #readme div.plain,
+  #readme div.wikistyle {
+    border: 1px solid #e9e9e9;
+    padding: .7em;
+    background-color: #f8f8f8;
+    margin-top: .3em;
+  }
+
+    #readme.blob div.plain,
+    #readme.blob div.wikistyle {
+      border-top: none;
+    }
+  
+    /* plain formatting */
+    
+    #readme div.plain pre {
+      font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
+      font-size: 85%;
+      color: #444;
+    }
+
+/*****************************************************************************/
+/*
+/* File
+/*
+/*****************************************************************************/
+
+#files {
+  
+}
+
+  #files textarea {
+    font-family: Monaco, "Courier New", monospace;    
+    border: 1px solid #dedede; /* gray */
+    font-size: 90%;
+    background-color: #f8f8ff;
+    padding: 5px;
+  }
+  
+  #files .file {
+    border: 1px solid #dedede; /* gray */
+    font-family: Monaco, "Courier New", monospace;
+    margin-bottom: 1em;
+  }
+
+    #files .file .meta {
+      overflow: hidden;
+      font-size: 90%;
+      padding: .5em 1em;
+      color: #666;
+      background-color: #eaeaea;
+      border-bottom: 1px solid #ddd;
+    }
+  
+      #files .file .meta .info {
+        float: left;
+      }
+    
+        #files .file .meta .info span {
+          margin-right: 3em;
+        }
+      
+    #files .file .meta .actions {
+      float: right;
+      text-align: right;
+    }
+  
+      #files .file .meta .actions a {
+        margin-left: 2em;
+      }
+    
+    #files .file .data {
+      font-size: 80%;
+      overflow: auto;
+      background-color: #f8f8ff;
+    }
+
+    #files .image {
+      padding: 1.2em;
+      text-align: center;
+    }
+  
+      #files .file .data pre {
+        font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
+      }
+    
+        #files .file .data .highlight {
+          padding: 1em 0;
+        }
+
+        #files .file .data .highlight .line {
+          
+        }
+        
+        #files .file .data .highlight div {
+          padding-left: 1em;
+        }
+      
+        #files .file .data .line_numbers {
+          background-color: #ececec;
+          color: #aaa;
+          padding: 1em .5em;
+          border-right: 1px solid #ddd;
+          text-align: right;
+        }
+      
+          #files .file .data .line_numbers span,
+          #files .file .data .line_numbers a {
+            color: #aaa;
+            cursor: pointer;
+          }
+          
+
+  #files .bubble {
+    color: white;
+    height: 1.4em;
+    margin: -0.2em 0 0 -9.6em;
+    padding: 0.1em 0.8em 0 0; 
+    padding-left: 0 !important;
+    position: absolute; 
+    width: 1.5em;
+    cursor: pointer;
+  }
+
+  #files .bubble.commented {
+  }
+
+  #files .meta .bubble {
+    font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
+    margin: -0.2em 0 0 -3.9em;
+    height: 1.5em;
+  }
+
+  #files .empty {
+    background: none;
+  }
+
+    #files .bubble span {
+      display: block;
+      line-height: 1.4em;
+      text-align: center;
+    }
+
+/*****************************************************************************/
+/*
+/* Repos
+/*
+/*****************************************************************************/
+
+#repos {
+  margin-bottom: 1em;
+}
+
+#repos h1 {
+  font-size: 160%;
+}
+
+  #repos h1 a {
+    font-size: 70%;
+    font-weight: normal;
+  }
+
+#repos .repo {
+  margin: 1em 0;
+  padding: .1em .5em .1em .5em;
+}
+
+#repos .public {
+  border: 1px solid #d8d8d8;
+  background-color: #f0f0f0;
+}
+
+#repos .private {
+  border: 1px solid #f7ca75;
+  background-color: #fffeeb;
+}
+
+  #repos .repo .title {
+    overflow: hidden;
+  }
+  
+    #repos .repo .title .path {
+      float: left;
+      font-size: 140%;
+    }
+    
+      #repos .repo .title .path img {
+        vertical-align: middle;
+      }
+      
+      #repos .repo .title .path .button {
+        margin-left: .25em;
+        vertical-align: -12%;
+      }
+    
+      #repos .repo .title .path span a {
+        font-size: 75%;
+        font-weight: normal
+      }
+    
+    #repos .repo .title .security {
+      float: right;
+      text-align: right;
+      font-weight: bold;
+      padding-top: .3em;
+    }
+    
+      #repos .repo .title .security * {
+        vertical-align: middle;
+      }
+      
+      #repos .repo .title .security img {
+        position: relative;
+        top: -1px;
+      }
+  
+  #repos .repo .meta {
+    margin: .2em 0 0 0;
+    overflow: hidden;
+  }
+
+    #repos .repo .meta table {
+      float: left;
+      max-width: 48em;
+    }
+  
+    #repos .repo .meta table td.label {
+      color: #888;
+      padding-right: .25em;
+      vertical-align: top;
+    }
+
+    #repos .repo .meta table td span.editarea input {
+      margin-top: .5em;
+      margin-right: .5em;
+    }
+
+    #repos .repo .meta table td textarea {
+      display: block;
+      clear: right;
+    }
+    
+    #repos .repo .meta table td.url {
+      color: #4183c4; /* blue */
+    }
+    
+    #repos .repo .meta table td.blank {
+      color: #bbb; 
+    }
+
+  #repos .repo .pledgie {
+    float: right;
+  }
+  
+  #repos .repo .commit {
+    border: 1px solid #bedce7; /* blue */
+    margin-top: .5em;
+    padding: 0 .5em .5em .5em;
+    overflow: hidden;
+  }
+  
+    #repos .repo .commit .actor {
+      float: left;
+      margin-top: .5em;
+    }
+
+      #repos .repo .commit .actor .gravatar {
+        border: 1px solid #d0d0d0; /* gray */
+        padding: 2px;
+        background-color: white;
+        float: left;
+        margin-right: .7em;
+      }
+      
+      #repos .repo .commit .actor .name {
+        line-height: 1.5em;
+      }
+      
+      #repos .repo .commit .actor .name span {
+        color: #888;
+        font-size: 90%;
+      }
+      
+      #repos .repo .commit .actor .date {
+        color: #888;
+        font-size: 90%;
+        line-height: 1em;
+      }
+      
+    #repos .repo .commit .message {
+      float: left;
+      padding: .5em 0 .5em .5em;
+      margin-left: 2em;
+      border-left: 1px solid #bedce7; /* blue */
+    }
+    
+    #repos .repo .commit .machine {
+      float: right;
+      width: 30em;
+      padding: .5em 0 .5em .5em;
+      border-left: 1px solid #bedce7; /* blue */
+      color: #808080;
+      font-family: Monaco, "Courier New", monospace;
+      font-size: 85%;
+      line-height: 1.5em;
+    }
+    
+  #repos .repo .diffs {
+    margin-top: .5em;
+  }
+  
+    #repos .repo .diffs .diff * {
+      vertical-align: middle;
+    }
+    
+    #repos .repo .diffs .diff img {
+      position: relative;
+      top: -1px;
+    }
+  
+  .search-match {
+    background: #fffccc;
+    font-weight: bold;
+  }
+
+  .test_hook, .hook_help {
+    margin-left: 5px;
+    text-decoration: underline;
+  }
+
+
+/*****************************************************************************/
+/*
+/* Service Hooks
+/*
+/*****************************************************************************/
+
+.service-hook {
+  margin: 1.5em 0;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  width: 300px;
+}
+
+.service-hook legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.service-hook label {
+  float: left;
+  width: 7em;
+  line-height: 1.1em;
+}
+
+.service-hook input {
+  margin-top: 3px;
+}
+
+.service-hook .help_box {
+  margin-top: 5px;
+  border: 1px solid #eee;
+  padding: 10px;
+  background: #fff;
+}
+
+.service-hook .help_box pre {
+  font-size:10px;
+}
+
+
+/*****************************************************************************/
+/*
+/* Dashboard
+/*
+/*****************************************************************************/
+
+#dashboard {
+  overflow: hidden;
+}
+
+  #dashboard h1 {
+    font-size: 160%;
+    margin-bottom: .5em;
+  }
+
+    #dashboard h1 a {
+      font-size: 70%;
+      font-weight: normal;
+    }
+
+  /* news */
+  
+  .news {
+    float: left; 
+    width: 42em;
+  }
+    .news blockquote {
+      color: #666;
+    }
+  
+    .news h1 {
+      margin-bottom: 0;
+    }
+
+      .filter, .feed_filter {
+        border-bottom: 1px solid #AAAAAA;
+        padding-bottom: .25em;
+        margin-bottom: 1em;
+      }
+
+        .filter li, .feed_filter li {
+          clear: none;
+          display: inline;
+        }
+
+  
+    #dashboard .news .alert {
+      padding: 0 0 1em 2em;
+      overflow: hidden;
+    }
+    
+      #dashboard .news .alert .body {
+        border-bottom: 1px solid #ccc;
+        overflow: hidden;
+        padding: 0 0 1em 0;
+      }
+      
+        #dashboard .news .alert .title {
+          padding: 0 0 .25em 0;
+          font-weight: bold;
+        }
+        
+          #dashboard .news .alert .title span {
+            background-color: #fff6a9;
+          }
+        
+        #dashboard .news .alert .gravatar {
+          border: 1px solid #d0d0d0; /* gray */
+          padding: 2px;
+          background-color: white;
+          float: left;
+          margin-right: .7em;
+        }
+      
+      
+  /* followers */
+  
+  #dashboard .followers {
+    float: right; 
+    width: 35em;
+    margin-bottom: 2em;
+  }
+  
+    #dashboard .followers h1 {
+      margin-bottom: 0.3em;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    #dashboard .followers ul {
+      list-style-type: none;
+    }
+    
+      #dashboard .followers ul li {
+        display: inline;
+      }
+      
+      #dashboard .followers ul li img {
+        border: 1px solid #d0d0d0;
+        padding: 1px;
+      }
+    
+  /* public news */
+
+  #dashboard .news.public_news {
+    float: right; 
+    width: 35em;
+  }
+  
+    #dashboard .news.public_news h1 {
+      margin-bottom: 0.3em;
+      border-bottom: 1px solid #ddd;
+    }
+
+  #dashboard .repos {
+    float: right;
+    clear: right;
+    width: 25em;
+    margin-bottom: 2em;
+  }
+
+    #dashboard .repos h1 {
+      margin-bottom: 0;
+    }
+
+    #dashboard .repos #repo_filter {
+      margin-bottom: 0.6em;
+    }
+
+      #dashboard .repos #repo_filter a.filter_selected {
+        color: #000;
+      }
+  
+    #dashboard .repos li {
+      list-style: none;
+      margin-bottom: 0.25em;
+      padding: .1em .5em .1em .5em;
+      font-size: 130%;
+    }
+    
+    #dashboard .watching li {
+      font-size: 110%;
+    }
+    
+    #dashboard .repos img {
+      vertical-align: middle;
+    }
+
+    #dashboard .repos .public {
+      border: 1px solid #d8d8d8;
+      background-color: #f0f0f0;
+    }
+
+    #dashboard .repos .private {
+      border: 1px solid #f7ca75;
+      background-color: #fffeeb;
+    }
+    
+  /* dossier */
+  
+  #dashboard .dossier {
+    float: left;
+    width: 32.18em;
+    margin-bottom: 2em;
+  }
+  
+    #dashboard .dossier .profile {
+      
+    }
+    
+      #dashboard .dossier .profile .identity {
+        overflow: hidden;
+      }
+    
+        #dashboard .dossier .profile .identity img {
+          border: 1px solid #d0d0d0; /* gray */
+          padding: 2px;
+          background-color: white;
+          float: left;
+          margin-right: .7em;
+        }
+      
+        #dashboard .dossier .profile .identity h1 {
+          line-height: 56px;
+        }
+        
+      #dashboard .dossier .profile .buttons {
+        margin-bottom: 1.3em;
+      }
+      
+      #dashboard .dossier .profile .vcard {
+        border: 1px solid #888;
+        background-color: #F8FFD5;
+      }
+      
+        #dashboard .dossier .profile .vcard .info {
+          font-size: 90%;
+        }
+      
+        #dashboard .dossier .profile .vcard .field {
+          overflow: hidden;
+        }
+        
+          #dashboard .dossier .profile .vcard .field label {
+            float: left;
+            margin-right: 1em;
+            display: block;
+            text-align: right;
+            width: 8em;
+            color: #777;
+            padding: .1em 0;
+          }
+          
+          #dashboard .dossier .profile .vcard .field div {
+            float: left;
+          }
+          
+          #dashboard .dossier .profile .vcard .field a.action {
+            color: #a00;
+          }
+      
+    #dashboard .dossier .projects {
+      margin-top: 2em;
+    }
+    
+      #dashboard .dossier .projects .project {
+        border: 1px solid #d8d8d8;
+        background-color: #f0f0f0;
+        margin-bottom: 1em;
+        padding: 0 .4em;
+      }
+      
+      #dashboard .dossier .projects .project .title {
+        font-size: 140%;
+      }
+      
+      #dashboard .dossier .projects .project .meta {
+        margin: .2em 0 0 0;
+        font-style: italic;
+        color: #888;
+      }
+      
+      #dashboard .dossier .projects .project .graph {
+        margin: .5em 0;
+      }
+      
+        #dashboard .dossier .projects .project .graph .bars {
+          width: 31.18em;
+          height: 20px;
+        }
+        
+        #dashboard .dossier .projects .project .graph img.legend {
+          width: 31.18em;
+        }
+    
+/*****************************************************************************/
+/*
+/* Inbox
+/*
+/*****************************************************************************/
+
+#inbox {
+  overflow: hidden;
+}
+
+  #inbox h1 {
+    font-size: 160%;
+    margin-bottom: .5em;
+  }
+
+    #inbox h1 a {
+      font-size: 70%;
+      font-weight: normal;
+    }
+    
+  #inbox .actions {
+    float: left;
+    width: 13em;
+    margin-bottom: 2em;
+  }
+  
+    #inbox .actions h1 {
+      color: white;
+    }
+    
+    #inbox .compose {
+      border-bottom: 1px solid #ddd;
+      font-size: 120%;
+      padding-bottom: .5em;
+      margin: .3em 0 1em 0;
+    }
+    
+      #inbox .actions .compose p a {
+        text-decoration: none;
+      }
+    
+      #inbox .actions .compose p a span {
+        text-decoration: underline;
+      }
+    
+    #inbox .boxes {
+      
+    }
+    
+      #inbox .boxes .new {
+        font-weight: bold;
+      }
+      
+      #inbox .boxes li {
+        padding-bottom: .4em;
+      }
+  
+    #inbox .actions p img {
+      vertical-align: middle;
+    }
+    
+  #inbox .write {
+    width: 54em;
+    float: right;
+    clear: right;
+  }
+  
+    #inbox .write h1 {
+      border-bottom: 1px solid #aaa;
+      padding-bottom: .25em;
+      margin: 0;
+    }
+    
+    #inbox .write form {
+      background-color: #EAF2F5;
+      padding: .5em 1em 1em 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    
+      #inbox .write .buttons .send {
+        padding: 0 2em;
+        font-weight: bold;
+      }
+      
+      #inbox .write .buttons .cancel {
+        padding: 0 1em;
+      }
+    
+      #inbox .write .buttons-top {
+        margin-bottom: .3em;
+      }
+      
+      #inbox .write .buttons-bottom {
+        margin-top: .7em;
+      }
+    
+      #inbox .write .field {
+        overflow: hidden;
+        margin: .5em 0;
+      }
+    
+        #inbox .write label {
+          width: 4em;
+          float: left;
+          text-align: right;
+          padding-right: .3em;
+          vertical-align: middle;
+          line-height: 1.7em;
+        }
+      
+        #inbox .write .field input {
+          width: 38em;
+          border: 1px solid #ccc;
+          font-size: 120%;
+          padding: .2em;
+        }
+        
+      #inbox .write textarea {
+        width: 45.95em;
+        border: 1px solid #ccc;
+        font-size: 110%;
+        padding: .2em;
+      }
+    
+  #inbox .list {
+    width: 54em;
+    float: right;
+    clear: right;
+  }
+  
+    #inbox .list h1 {
+      border-bottom: 1px solid #aaa;
+      padding-bottom: .25em;
+      margin: 0;
+    }
+  
+    #inbox .list .item {
+      padding: 1em 0 0 2.3em;
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+    }
+    
+      #inbox .list .unread {
+        background-color: #eaf2f5 !important;
+      }
+    
+      #inbox .list .item .body {
+        overflow: hidden;
+        padding: 0 0 1em 0;
+      }
+      
+        #inbox .list .item .del {
+          float: right;
+          padding-right: .5em;
+        }
+      
+        #inbox .list .item .title {
+          padding: 0 0 .25em 0;
+          font-weight: bold;
+        }
+        
+          #inbox .list .item .title span {
+            background-color: #fff6a9;
+          }
+        
+        #inbox .list .item .gravatar {
+          border: 1px solid #d0d0d0; /* gray */
+          padding: 2px;
+          background-color: white;
+          float: left;
+          margin-right: .7em;
+        }
+        
+        #inbox .list .item .details .message a.subject {
+          font-weight: bold;
+        }
+        
+        #inbox .list .item .details .message a.body {
+          color: #23486b;
+        }
+      
+      
+/*****************************************************************************/
+/*
+/* Message
+/*
+/*****************************************************************************/
+
+#message {
+  overflow: hidden;
+}
+
+  #message h1 {
+    font-size: 160%;
+    margin-bottom: .5em;
+  }
+
+    #message h1 a {
+      font-size: 70%;
+      font-weight: normal;
+    }
+
+  #message .actions {
+    float: left;
+    width: 13em;
+    margin-bottom: 2em;
+  }
+  
+    #message .actions h1 {
+      color: white;
+    }
+    
+    #message .compose {
+      border-bottom: 1px solid #ddd;
+      font-size: 120%;
+      padding-bottom: .5em;
+      margin: .3em 0 1em 0;
+    }
+    
+      #message .actions .compose p a {
+        text-decoration: none;
+      }
+    
+      #message .actions .compose p a span {
+        text-decoration: underline;
+      }
+    
+    #message .boxes {
+      
+    }
+    
+      #message .boxes .new {
+        font-weight: bold;
+      }
+      
+      #message .boxes li {
+        padding-bottom: .4em;
+      }
+  
+    #message .actions p img {
+      vertical-align: middle;
+    }
+
+  #message .envelope {
+    float: right;
+    width: 54em;
+  }
+  
+    #message .envelope h1 {
+      border-bottom: 1px solid #aaa;
+      padding-bottom: .25em;
+      margin: 0;
+    }
+    
+    #message .envelope .header {
+      padding: .75em 0 0 .5em;;
+    }
+    
+      #message .envelope .header .gravatar {
+        border: 1px solid #d0d0d0; /* gray */
+        padding: 2px;
+        background-color: white;
+        float: left;
+      }
+      
+      #message .envelope .header .info {
+        padding: 0 0 0 3.5em;
+      }
+      
+        #message .envelope .header .info .del {
+          float: right;
+          padding-right: .5em;
+        }
+        
+        #message .envelope .header .info .title {
+          padding: 0 0 .25em 0;
+          font-weight: bold;
+        }
+
+        #message .envelope .header .info .title.unread { 
+          background-color: #eaf2f5 !important;
+        }
+        
+          #message .envelope .header .info .title span {
+            background-color: #fff6a9;
+          }
+          
+    #message .envelope .body {
+      margin: 0 0 1.3em 4em;
+      padding: 0 0 1em 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #message .envelope .sent {
+      background: #FFFBE2 none repeat scroll 0%;
+      border: 1px solid #FFE222;
+      padding: 1em;
+      font-weight: bold;
+    }
+    
+    #message .envelope .reply {
+      margin: 2em 0 0 4em;
+    }
+
+      #message .envelope .reply .cancel {
+        padding: 0 1em;
+      }
+    
+      #message .envelope .reply label {
+        font-size: 110%;
+        color: #666;
+        display: block;
+        clear: right;
+        margin-top: 1em;
+      }
+    
+      #message .envelope .reply textarea {
+        width: 100%;
+        height: 9em;
+        border: 1px solid #8496BA;
+        margin-bottom: 1em;
+      }
+
+/*****************************************************************************/
+/*
+/* Edit User
+/*
+/*****************************************************************************/
+
+#edit_user {
+  overflow: hidden;
+}
+
+  #edit_user h1 {
+    font-size: 140%;
+    margin-top: 1.5em;
+    margin-bottom: .25em;
+  }
+
+  .key_editing .object_error{
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #ff0000;
+    padding: .1em .3em;
+    margin-top: .5em;
+  }
+  
+  #edit_user .hint,
+  #repos .hint {
+    font-style: italic;
+    color: #888;
+    margin: .3em 0;
+  }
+  
+  #edit_user textarea {
+    border: 1px solid #888;
+    padding: 4px;
+  }
+  
+  #edit_user input.text {
+    border: 1px solid #888;
+    padding: 4px;
+  }
+  
+  #edit_user .user {
+    width: 39em;
+    float: left;
+  }
+  
+    #edit_user .user .info {
+    
+    }
+    
+    #edit_user .user .emails {
+    
+    }
+  
+      #edit_user .user .emails .email {
+        overflow: hidden;
+        list-style-type: none;
+      }
+  
+        #edit_user .user .emails .email img {
+          border: 1px solid #d0d0d0; /* gray */
+          padding: 2px;
+          background-color: white;
+          float: left;
+          margin-right: .7em;
+        }
+    
+        #edit_user .user .emails .email .address {
+          font-weight: bold;
+          line-height: 40px;
+        }
+        
+          #edit_user .user .emails .email .address a {
+            font-weight: normal;
+            color: #a00;
+          }
+          
+      #edit_user .user .emails .add, 
+      .keys .add {
+        margin: .7em 0;
+      }
+      
+        #edit_user .user .emails .add #add_email_action a,
+        .keys .add #add_key_action a {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+    
+    .keys ul{
+      list-style: none;
+    }
+    .key_content{
+      display: none;
+    }
+    
+    #new_key{
+      display: none;
+    }
+    
+    .key_editing textarea {
+      width: 32em;
+      height: 14em;
+      display: block;
+      margin-bottom: .7em;
+    }
+    
+    .keys textarea {
+      width: 36em;
+      height: 12em;
+      display: block;
+      margin-bottom: .7em;
+    }
+    
+    #edit_user .user .password {
+      
+    }
+    
+      #edit_user .user .password label, 
+      .keys label,
+      #edit_user .user .admin label {
+        display: block;
+        margin: .5em 0;
+        color: #888;
+        font-size: 90%;
+      }
+      
+      #edit_user .user .password input {
+        font-size: 100%;
+        clear: right;
+        display: block;
+      }
+      
+      #edit_user .user .password input[type=submit] {
+        margin-top: 1em;
+      }
+    
+    
+  #edit_user .plan {
+    width: 30em;
+    float: right;
+    margin-top: 1.5em;
+  }
+  
+    #edit_user th {
+      padding: .15em .4em .15em 0;
+    }
+    
+    #edit_user .plan_box {
+      background: #f2f2f2;
+      border: 1px solid #ddd;
+      padding: .8em;
+    }
+    
+    #edit_user #account_disabled_notice {
+      background: red;
+      color: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: .8em;
+      padding: .8em;
+    }
+    
+    #edit_user .current {
+      
+    }
+    
+      #edit_user .current small {
+        font-weight: normal;
+      }
+      
+      #edit_user #update_cc p.error {
+        color: #a00;
+        font-style: italic;
+      }
+      
+      #edit_user #update_cc p.legal {
+        font-size: .9em;
+        margin: .8em 0;
+        line-height: 1.5em;
+      }
+
+      #edit_user #show_card_box {
+        float: right;
+        width: 110px;
+        font-weight: bold;
+        text-align: right;
+        margin-top: 3px;
+      }
+
+/*****************************************************************************/
+/*
+/* Watchers
+/*
+/*****************************************************************************/
+
+#watchers {
+
+}
+
+  #watchers li {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.6em;
+  }
+
+/*****************************************************************************/
+/*
+/* Members
+/*
+/*****************************************************************************/
+
+ul.members {
+  list-style: none;
+}
+
+  .members li {
+    font-size: 110%;
+    margin: .4em 1.3em;
+    font-weight: bold;
+  }
+  
+    .members li .gravatar {
+      border: 1px solid #d0d0d0; /* gray */
+      padding: 1px;
+      background-color: white;
+      float: left;
+      margin-right: 1em;
+    }
+  
+    .members li div {
+      margin-bottom: 0.7em;
+    }
+
+/*****************************************************************************/
+/*
+/* Privacy
+/*
+/*****************************************************************************/
+
+#privacy, #members, #copy_permissions, #deploy_keys {
+  margin-bottom: 1.5em;
+}
+
+  #privacy ul, #members ul, #copy_permissions ul {
+    list-style: none;
+  }
+
+  #copy_permissions ul li {
+    font-size: 130%;
+  }
+
+  #members li {
+    font-size: 110%;
+    margin: .4em 1.3em;
+    font-weight: bold;
+  }
+  
+    #members li img {
+      border: 1px solid #d0d0d0; /* gray */
+      padding: 1px;
+      background-color: white;
+    }
+  
+    #members li * {
+      vertical-align: middle;
+    }
+    
+    #members li span {
+      font-weight: normal;
+      font-size: 91%;
+    }
+
+/*****************************************************************************/
+/*
+/* Directory
+/*
+/*****************************************************************************/
+
+#directory {
+  
+}
+
+  #directory .news {
+    width: 100%;
+  }
+
+  #directory h1 {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+  }
+
+    #directory .news h1 {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  
+  #directory .repo {
+    width: 100%;
+  }
+  
+    #directory .repo .gravatar {
+      width: 27px;
+    }
+    
+      #directory .repo .gravatar img {
+        border: 1px solid #d0d0d0; /* gray */
+        padding: 1px;
+        background-color: white;
+      }
+  
+    #directory .repo .title {
+      font-size: 140%;
+    }
+    
+    #directory .repo .owner,
+    #directory .repo .date {
+      text-align: center;
+    }
+    
+    #directory .repo .graph {
+      width: 426px;
+      vertical-align: top;
+      padding-top: .2em;
+      text-align: right;
+    }
+    
+    #directory .repo .desc {
+      
+    }
+    
+    #directory .repo .sep {
+      font-size: 50%;
+    }
+    
+    #directory .repo .border {
+      border-bottom: 1px solid #ddd;
+    }
+
+/*****************************************************************************/
+/*
+/* Guides
+/*
+/*****************************************************************************/
+
+#guides {
+  
+}
+
+  /* index */
+  
+  #guides .index {
+    
+  }
+  
+    #guides h1 {
+      margin-bottom: .5em;
+    }
+  
+    #guides .index ul {
+      list-style-type: none;
+      font-size: 120%;
+    }
+    
+      #guides .index ul li {
+        padding-left: 1.5em;
+
+      }
+      
+    #guides .index .new {
+      margin-top: 1em;
+      border-top: 1px solid #ccc;
+      padding-top: .5em;
+    }
+    
+      #guides .index .new ul li {
+      }
+      
+      #guides .index .new ul li a {
+        color: #c00;
+      }
+
+  /* guide */
+  
+  #guides .guide {
+    overflow: hidden;
+  }
+  
+    /* main */
+    
+    #guides .guide .main {
+      float: left;
+      width: 50em;
+    }
+    
+    /* sidebar */
+    
+    #guides .guide .sidebar {
+      float: right;
+      width: 15em;
+      border-left: 4px solid #e6e6e6;
+      margin: 2.1em 0 0 0;
+      padding-left: 1em;
+    }
+    
+      #guides .guide .sidebar h3 {
+        margin: 0 0 .5em 0;
+      }
+      
+      #guides .guide .sidebar ul {
+        list-style-type: none;
+        margin: 0;
+        color: #888;
+        
+      }
+      
+      #guides .guide .sidebar ul li {
+        padding-left: 12px;
+        margin: .2em 0;
+      }
+      
+  /* admin */
+
+  #guides .admin {
+    clear: both;
+    margin-top: 3em;
+    border-top: 4px solid #e6e6e6;
+    padding-top: .3em;
+    overflow: hidden;
+  }
+    
+  /* write */
+  
+  #guides .write {
+    
+  }
+  
+    #guides .write label {
+      font-size: 110%;
+      color: #666;
+      display: block;
+      margin: 1em 0;
+    }
+    
+    #guides .write input.text,
+    #guides .write textarea {
+      padding: 5px;
+      border: 1px solid #888;
+    }
+    
+    #guides .write input.text {
+      width: 40em;
+    }
+    
+    #guides .write textarea {
+      width: 100%;
+      height: 25em;
+    }
+    
+    #guides .write label span.title {
+      color: black;
+      font-weight: bold;
+    }
+
+/*****************************************************************************/
+/*
+/* Wiki Styles
+/*
+/*****************************************************************************/
+
+.wikistyle h1 {
+  font-size: 170%;
+  border-top: 4px solid #aaa;
+  padding-top: .5em;
+}
+
+.wikistyle h2 {
+  font-size: 150%;
+  margin-top: 1.5em;
+  border-top: 4px solid #e0e0e0;
+  padding-top: .5em;
+}
+
+.wikistyle h3 {
+  margin-top: 1em;
+}
+
+.wikistyle p {
+  margin: 1em 0;
+  line-height: 1.5em;
+}
+
+.wikistyle ul {
+  margin: 1em 0 1em 1em;
+}
+
+.wikistyle ol {
+  margin: 1em 0 1em 1.5em;
+}
+
+.wikistyle blockquote {
+  margin: 1em 0;
+  border-left: 5px solid #ddd;
+  padding-left: .6em;
+  color: #555;
+}
+
+.wikistyle table {
+  margin: 1em 0;
+}
+
+  .wikistyle table th {
+    border-bottom: 1px solid #bbb;
+    padding: .2em 1em;
+  }
+
+  .wikistyle table td {
+    border-bottom: 1px solid #ddd;
+    padding: .2em 1em;
+  }
+  
+.wikistyle pre {
+  margin: 1em 0;
+  font-size: 90%;
+  background-color: #f8f8ff;
+  border: 1px solid #dedede;
+  padding: .5em;
+  line-height: 1.5em;
+  color: #444;
+}
+  
+  .wikistyle pre code {
+    padding: 0;
+    font-size: 100%;
+    background-color: #f8f8ff;
+    border: none;
+  }
+
+.wikistyle code {
+  font-size: 90%;
+  background-color: #f8f8ff;
+  color: #444;
+  padding: 0 .2em;
+  border: 1px solid #dedede;
+}
+
+/* console */
+
+.wikistyle pre.console {
+  margin: 1em 0;
+  font-size: 90%;
+  background-color: black;
+  padding: .5em;
+  line-height: 1.5em;
+  color: white;
+}
+
+  .wikistyle pre.console code {
+    padding: 0;
+    font-size: 100%;
+    background-color: black;
+    border: none;
+    color: white;
+  }
+  
+  .wikistyle pre.console span {
+    color: #888;
+  }
+
+  .wikistyle pre.console span.command {
+    color: yellow;
+  }
+  
+/*****************************************************************************/
+/*
+/* Network
+/*
+/*****************************************************************************/
+
+#network {
+  
+}
+
+  #network h2 {
+    margin-bottom: .25em;
+  }
+
+  #network p {
+    font-size: 120%;
+    margin: 1em 0;
+  }
+
+  #network .repo {
+    font-size: 140%;
+  }
+  
+    #network .repo img {
+      vertical-align: middle;
+    }
+  
+    #network .repo img.gravatar {
+      padding-right: 4px;
+      padding: 1px;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+    
+    #network .repo span {
+      background-color: #FFF6A9;
+    }
+
+    #network .repo a.commit {
+      color: #888;
+      font-size: 80%;
+      line-height: 1em;
+    }
+
+  /* graph */
+  
+  #network .help_actions a {
+    font-size: 90%;
+  }
+  
+  #network #help pre {
+    font-size: 80%;
+    line-height: 1.2em;
+    margin-bottom: 1.5em;
+    border: 1px solid black;
+    color: #eee;
+    background-color: #222;
+    padding: 1em;
+  }
+
+/*****************************************************************************/
+/*
+/* Facebox
+/*
+/*****************************************************************************/
+
+.facebox {
+  
+}
+
+  .facebox p {
+    margin: .5em 0;
+  }
+
+  .facebox b {
+    background-color: #FFF6A9;
+  }
+
+  .facebox ul {
+    margin-left: 1em;
+  }
+  
+  .facebox ol {
+    margin-left: 1.5em;
+  }
+
+/*****************************************************************************/
+/*
+/* Pull Request
+/*
+/*****************************************************************************/
+
+#pull_request {
+  width: 35em;
+}
+  #pull_request ul {
+    list-style-type: none;
+  }
+
+  #pull_request label.repo span.name {
+    font-size: 160%;
+  }
+  
+    #pull_request label.repo span span.sha {
+      color: #aaa;
+    }
+  
+  #pull_request .label label {
+    display: inline;
+    margin: 0;
+    font-size: 100%;
+    font-weight: bold;
+  }
+  
+  #pull_request .label div{
+    margin: .2em; 0;
+  }
+
+/*****************************************************************************/
+/*
+/* Pricing
+/*
+/*****************************************************************************/
+
+#pricing {
+  width: 60em;
+  margin: 3em auto 0 auto;
+}
+
+  #pricing h1 {
+    font-size: 140%;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  #pricing h2 {
+    font-size: 140%;
+    text-align: center;
+    margin-top: 1em;
+  }
+
+  #pricing table {
+    width: 100%;
+    background-color: #ddd;
+    font-size: 110%;
+  }
+  
+    #pricing table th.features {
+      width: 22%;
+    }
+  
+    #pricing table th {
+      background-color: #FEFEB4;
+      text-align: center;
+      font-size: 130%;
+      padding: .3em;
+      width: 13%;
+    }
+    
+      #pricing table th span {
+        display: block;
+        font-size: 75%;
+        color: #090;
+        padding: .3em 0;
+      }
+  
+    #pricing table td {
+      background-color: white;
+      padding: .3em;
+      text-align: center;
+    }
+    
+      #pricing table td.feature {
+        text-align: right;
+        padding-right: .5em;
+      }
+      
+        #pricing table td.feature img {
+          vertical-align: middle;
+        }
+        
+      #pricing table tr.best-for {
+        font-size: 0.7em;
+      }        
+              
+        #pricing table tr.best-for td.feature {
+          font-size: 1.5em;
+        }        
+            
+  #pricing .legend {
+    color: #aaa;
+    font-size: 90%;
+    margin-top: .4em;
+    text-align: right;
+  }
+
+  #pricing h2 {
+    border-top: 2px solid #eee;
+  }
+
+#pricing-faq {
+  margin-top: 2em;
+}
+
+  #pricing-faq p {
+    margin-bottom: 1.7em;
+    font-size: 1.1em;
+  }
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+#posts {
+  margin-top: 2em;
+  overflow: hidden;
+}
+
+  #posts .list {
+    float: left;
+    width: 41em;
+  }
+
+    #posts li.post {
+      list-style-type: none;
+      margin-bottom: 2em;
+    }
+  
+    /* title */
+  
+    #posts h2 {
+      font-size: 190%;
+    }
+  
+    #posts h3 {
+      margin: 1em 0 .5em 0;
+    }
+  
+    /* meta */
+  
+    #posts .meta {
+    
+    }
+  
+      #posts .meta .who_when {
+        font-size: 130%;
+      }
+  
+        #posts .meta .who_when img {
+          vertical-align: middle;
+          padding: 1px;
+          border: 1px solid #ccc;
+          position: relative;
+          top: -1px;
+        }
+    
+        #posts .meta .who_when .author a {
+          color: #94bfea;
+          font-weight: bold;
+        }
+    
+        #posts .meta .who_when .published {
+          color: #ccc;
+        }
+    
+      #posts .meta .respond {
+        margin: .3em 0;
+        padding-left: 25px;
+        font-size: 110%;
+      }
+  
+        #posts .meta .respond a {
+          color: #cbb698;
+        }
+  
+    /* body */
+  
+    #posts .entry-content {
+      font-size: 110%;
+      margin-top: 1em;
+    }
+
+      #posts .entry-content blockquote {
+        padding-left: 1em;
+        color: #666;
+      }
+  
+      #posts .entry-content p {
+        margin: 1em 0;
+      }
+    
+      #posts .entry-content pre {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        font-size: 90%;
+        padding: .5em;
+      }
+    
+        #posts .entry-content pre code {
+          background-color: #f8f8f8;
+          font-size: 95%;
+        }
+    
+      #posts .entry-content code {
+        font-size: 90%;
+        background-color: #ddd;
+        padding: 0 .2em;
+      }
+    
+      #posts .entry-content img {
+        margin: 1em 0;
+        padding: 0.3em;
+        border: 1px solid #ddd;
+      }
+    
+      #posts .entry-content ul {
+        margin-left: 1em;
+      }
+  
+    /* comments */
+  
+    li.comments {
+      list-style-type: none;
+    }
+  
+      .comments ul {
+        list-style-type: none;
+      }
+    
+        .comments ul li {
+          border: 1px solid #ddd;
+          background-color: #eee;
+          padding: 1em;
+          margin: 1em 0;
+        }
+      
+          .comments ul li .header {
+          
+          }
+      
+            .comments ul li .header img.gravatar {
+              vertical-align: middle;
+              padding: 1px;
+              border: 1px solid #ccc;
+            }
+          
+            .comments ul li .header .person {
+              font-size: 120%;
+              font-weight: bold;
+            }
+          
+            .comments ul li .header .date {
+              font-size: 110%;
+              font-weight: bold;
+              color: #bbb;
+              padding-left: .5em;
+            }
+          
+          .comments ul li .body {
+            margin-top: .5em;
+          }
+        
+    /* sidebar */
+    
+    #posts .sidebar {
+      float: right;
+      width: 26em;
+      position: relative;
+      top: -10px;
+    }
+    
+      #posts .sidebar .rss {
+        text-align: center;
+      }
+      
+      #posts .sidebar .others {
+        border-top: 2px solid #444;
+        margin-top: .3em;
+        padding-top: 1em;
+        
+      }
+      
+        #posts .sidebar .others ul {
+          list-style-type: none;
+        }
+        
+          #posts .sidebar .others li {
+            padding: .5em 0;
+            
+          }
+          
+            #posts .sidebar .others li a {
+              font-size: 140%;
+              line-height: 1em;
+            }
+            
+            #posts .sidebar .others .meta {
+              color: #888;
+            }
+      
+  /* form */
+  
+  #new_comment {
+    background-color: #EAF2F5;
+    border: 1px solid #a9e0f5;
+    padding: 0 1em;
+    color: #6e92a0;
+  }
+  
+    #new_comment  p {
+      margin: 1em 0;
+    }
+  
+    #new_comment label {
+      display: block;
+    }
+    
+      #new_comment label span {
+        font-size: 90%;
+        color: #aaa;
+      }
+
+        #new_comment label span a {
+          color: #aaa;
+          text-decoration: none;
+        }
+    
+    #new_comment textarea,
+    #new_comment input.text {
+      border: 1px solid #aaa;
+      font-size: 110%;
+      padding: .2em;
+    }
+    
+    #new_comment textarea {
+      width: 35.0em !important;
+    }
+
+/*****************************************************************************/
+/*
+/* Tour
+/*
+/*****************************************************************************/
+
+#tour {
+  margin-top: 2em;
+}
+
+  #tour .site {
+    width: 67.62em;
+  }
+  
+  #tour .movie {
+    padding: 1px;
+    background-color: #ddd;
+    border: 1px solid #bbb;
+  }
+  
+    #tour .movie img {
+      width: 898px;
+      height: 395px;
+    }
+    
+  #tour .sections {
+    overflow: hidden;
+    margin-top: 2em;
+  }
+  
+    #tour .sections .section {
+      width: 22.5em;
+      float: left;
+    }
+    
+      #tour .sections .section h2 {
+        font-size: 200%;
+      }
+      
+      #tour .sections .section ul {
+        list-style-type: none;
+        font-size: 140%;
+      }
+      
+        #tour .sections .section ul li {
+          line-height: 1.5em;
+          color: #aaa;
+          padding-left: 1.1em;
+        }
+        
+          #tour .sections .section ul li a {
+            color: black;
+            text-decoration: underline;
+          }
+  
+  #tour .signup {
+    text-align: center;
+    margin-top: 4em;
+  }
+  
+/*****************************************************************************/
+/*
+/* Pagination
+/*
+/*****************************************************************************/
+
+.pagination {
+  padding: .3em;
+  margin: .3em;
+}
+
+.pagination a {
+  padding: .1em .3em;
+  margin: .2em;
+  border: 1px solid #aaaadd;
+  text-decoration: none;
+  color: #369;
+}
+
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #369;
+  color: #000;
+}
+
+.pagination span.current {
+  padding: .1em .3em;
+  margin: .2em;
+  border: 1px solid #369;
+  font-weight: bold;
+  background-color: #369;
+  color: #FFF;
+}
+
+.pagination span.disabled {
+  padding: .1em .3em;
+  margin: .2em;
+  border: 1px solid #eee;
+  color: #ddd;
+}
+
+/*****************************************************************************/
+/*
+/* Commit Comments
+/*
+/*****************************************************************************/
+#commit_comments {
+}
+
+  #commit_comments h1 {
+    margin-bottom: 0.1em;
+  }
+
+  #commit_comments .inner {
+    height: 22em;
+    overflow: auto;
+  }
+
+  #commit_comments .inner form {
+    padding-bottom: 1em;
+  }
+
+  #commit_comments code, #comments code {
+    font-size: 0.9em;
+    background: #000;
+    padding: 0.1em;
+    color: #fff;
+    border: 1px solid #eee;
+    font-family: Monaco, "Courier New", monospace;
+  }
+
+  #commit_comments ul {
+    list-style-type: none;
+  }
+
+    #commit_comments ul li.nopad {
+      padding: 0;
+    }
+
+    #commit_comments ul li {
+      border-top: 1px solid #ddd;
+      padding-top: 1em;
+    }
+
+    #commit_comments ul li.first {
+      border-top: none;
+    }
+
+      #commit_comments ul li p {
+        padding-left: 1em;
+        font-family: Monaco, "Courier New", monospace;
+        font-size: 90%;
+      }
+
+      #commit_comments ul li textarea { 
+        font-family: Monaco, "Courier New", monospace;
+        font-size: 92%;
+      }
+
+/*****************************************************************************/
+/*
+/* Downloads
+/*
+/*****************************************************************************/
+
+ul#downloads {
+  list-style-type: none;
+  text-align: center;
+}
+
+  ul#downloads li {
+    display: inline;
+  }
+
+#other_downloads {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5em;
+}
+
+  #other_downloads ul {
+    list-style-type: none;
+    width: 8em;
+    float: left;
+    clear: right;
+  }
+
+
+
+/*****************************************************************************/
+/*
+/* Popup
+/*
+/*****************************************************************************/
+
+.popup .standard_form {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  width: 35em;
+}
+
+
+  .popup .standard_form .clean_list {
+    list-style-type: none;
+  }
+
+  .popup .standard_form h1 {
+    background: #ddd;
+    padding: 0.5em 0.6em;
+  }
+
+    .popup .standard_form h1 .links {
+      font-size: 0.6em;
+      float: right;
+      font-weight: none;
+      margin-top: -0.4em;
+    }
+
+    .popup .standard_form h1 .links a {
+      font-size: 1em;
+    }
+
+  .popup .standard_form .pull_request_inside, .popup .standard_form .inner {
+    padding: 0 1em 0.5em 1em;
+  }
+
+  .popup .standard_form .actions {
+    border-top: 1px solid #ddd;
+    padding: 0.5em;
+  }
+
+    .popup .standard_form .actions label {
+      clear: none;
+      display: inline;
+      padding-left: 1em;
+    }
+
+
+#facebox .popup .content, #facebox .popup .loading {
+  padding: 0.5em;
+}
+
+#facebox .nopad .content, #facebox .popup .nopad {
+  padding: 0;
+}
+
+#facebox .footer {
+  padding: 0.3em 1em;
+}
+
+#facebox .tip {
+  width: 500px;
+  padding: 1em;
+}
+
+#facebox .body {
+  padding: 0;
+}
+
+/*****************************************************************************/
+/*
+/* Tooltips
+/*
+/*****************************************************************************/
+
+.tool-tip {
+  color: #fff;
+  width: 350px;
+  z-index: 13000;
+}
+
+.tool-title {
+  font-weight: bold;
+  font-size: 11px;
+  margin: 0;
+  color: #9FD4FF;
+  padding: 8px 8px 4px;
+}
+
+.tool-text {
+  font-size: 11px;
+  padding: 4px 8px 8px;
+}
+
+.custom-tip {
+  color: #000;
+  width: 130px;
+  z-index: 13000;
+}
+
+.custom-title {
+  font-weight: bold;
+  font-size: 11px;
+  margin: 0;
+  color: #3E4F14;
+  padding: 8px 8px 4px;
+  background: #C3DF7D;
+  border-bottom: 1px solid #B5CF74;
+}
+
+.custom-text {
+  font-size: 11px;
+  padding: 4px 8px 8px;
+  background: #CFDFA7;
+}
+
+
+/*****************************************************************************/
+/*
+/* Privacy Policy / Terms of Service
+/*
+/*****************************************************************************/
+
+#privacy_terms {
+}  
+
+  #privacy_terms h1 {
+    margin-bottom: 0.3em;
+  }
+  
+  #privacy_terms h2 {
+    margin-top: 1em;
+  }  
+  
+  #privacy_terms ul, #privacy_terms ol {
+    margin-left: 1.4em;
+  }    
+  
+  #privacy_terms p {
+    margin-bottom: 1em;
+  }    
+
