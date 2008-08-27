@@ -1,4 +1,4 @@
-// Github tagging extension tagging script
+// GitHub.com tagging extension tagging script
 // version 0.1 BETA!
 // 2008-08-26
 // Copyright (c) 2008, Michael Bumann - michael@Railslove.com
@@ -12,10 +12,10 @@
 // --------------------------------------------------------------------
 //
 // ==UserScript==
-// @name          Github Tagger
+// @name          GitHub.com Tagger
 // @namespace     http://railslove.com
 // @description   script that adds tagging functions to the awesome github.com       
-// @include       *github.com/*
+// @include       *github.com*
 // ==/UserScript==
 
 var head = document.getElementsByTagName("head")[0];
