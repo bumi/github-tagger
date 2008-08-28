@@ -344,7 +344,7 @@ function binl2b64(binarray)
 					return;
 				
 				jQuery.each(response,function(count,tagging){ 
-					var tag_url = GithubTagger.taggerUrl + "repositories.js?tags="+escape(tagging.tag_name);
+					var tag_url = GithubTagger.taggerUrl + "users/" + GithubTagger.User.name() + "/repositories.js?tags="+escape(tagging.tag_name);
 					var tag_link =  jQuery("<a/>").attr({href:tag_url, rel:"facebox"}).html(" "+ tagging.tag_name +" ");
 					$("#my_tags").append(tag_link);
 					tag_link.bind("click", function(event) { 
