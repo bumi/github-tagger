@@ -12,9 +12,6 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -52,3 +49,39 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+
+	h1 {
+		margin:15px 0px 40px 0px;
+	}
+	.install strong {
+		font-size: 2em;
+		border-bottom:5px solid #336699;
+	}
+	.install {
+		font-size:1.3em;
+		margin:30px 0px;
+	}
+	ul.description {
+		float:left;
+		text-align:right;
+	}
+	ul.description {
+		font-size:1.3em;
+	}
+	ul.description li {
+		list-style-type:none;
+		padding:5px;
+		
+	}
+	#footer {
+		clear:both;
+		background-color:#3972A5;
+		border-top:5px solid #336699;
+	}
+	#header {
+		background-color:#eee;
+	}
+	.screenshots img {
+		margin:5px;
+		border:3px solid #ccc;
+	}
