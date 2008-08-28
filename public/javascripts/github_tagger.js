@@ -423,8 +423,14 @@ function binl2b64(binarray)
 					var td_empty = jQuery("<td/>");
 					var td_tags = jQuery("<td/>").attr({colspan:"3"}).addClass("desc").html("<strong>Tags:</strong> "+ repository.tag_list);
 					tr_tags.append(td_empty).append(td_tags);
+					
+					var tr_sep = jQuery("<tr/>").addClass("sep").append(jQuery("<td/>")).append(jQuery("<td/>").attr({colspan:"4"}).addClass("border")).append(jQuery("<td/>"));
+					
 					$("#directory table.repo").append(tr_name);
 					$("#directory table.repo").append(tr_tags);
+					$("#directory table.repo").append(tr_sep);
+					
+					
 				}
 			});
 		},
